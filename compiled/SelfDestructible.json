@@ -1,0 +1,563 @@
+{
+	"abi": [
+		{
+			"inputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "oldOwner",
+					"type": "address"
+				},
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "newOwner",
+					"type": "address"
+				}
+			],
+			"name": "OwnerChanged",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "newOwner",
+					"type": "address"
+				}
+			],
+			"name": "OwnerNominated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "newBeneficiary",
+					"type": "address"
+				}
+			],
+			"name": "SelfDestructBeneficiaryUpdated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "uint256",
+					"name": "selfDestructDelay",
+					"type": "uint256"
+				}
+			],
+			"name": "SelfDestructInitiated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [],
+			"name": "SelfDestructTerminated",
+			"type": "event"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "address",
+					"name": "beneficiary",
+					"type": "address"
+				}
+			],
+			"name": "SelfDestructed",
+			"type": "event"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "SELFDESTRUCT_DELAY",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [],
+			"name": "acceptOwnership",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [],
+			"name": "initiateSelfDestruct",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "initiationTime",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_owner",
+					"type": "address"
+				}
+			],
+			"name": "nominateNewOwner",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "nominatedOwner",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "owner",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [],
+			"name": "selfDestruct",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "selfDestructBeneficiary",
+			"outputs": [
+				{
+					"internalType": "address",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "selfDestructInitiated",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "address payable",
+					"name": "_beneficiary",
+					"type": "address"
+				}
+			],
+			"name": "setSelfDestructBeneficiary",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [],
+			"name": "terminateSelfDestruct",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	],
+	"evm": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		}
+	},
+	"metadata": {
+		"compiler": {
+			"version": "0.5.16+ovm+commit.83c8e78f"
+		},
+		"language": "Solidity",
+		"output": {
+			"abi": [
+				{
+					"inputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "constructor"
+				},
+				{
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"internalType": "address",
+							"name": "oldOwner",
+							"type": "address"
+						},
+						{
+							"indexed": false,
+							"internalType": "address",
+							"name": "newOwner",
+							"type": "address"
+						}
+					],
+					"name": "OwnerChanged",
+					"type": "event"
+				},
+				{
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"internalType": "address",
+							"name": "newOwner",
+							"type": "address"
+						}
+					],
+					"name": "OwnerNominated",
+					"type": "event"
+				},
+				{
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"internalType": "address",
+							"name": "newBeneficiary",
+							"type": "address"
+						}
+					],
+					"name": "SelfDestructBeneficiaryUpdated",
+					"type": "event"
+				},
+				{
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"internalType": "uint256",
+							"name": "selfDestructDelay",
+							"type": "uint256"
+						}
+					],
+					"name": "SelfDestructInitiated",
+					"type": "event"
+				},
+				{
+					"anonymous": false,
+					"inputs": [],
+					"name": "SelfDestructTerminated",
+					"type": "event"
+				},
+				{
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"internalType": "address",
+							"name": "beneficiary",
+							"type": "address"
+						}
+					],
+					"name": "SelfDestructed",
+					"type": "event"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "SELFDESTRUCT_DELAY",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [],
+					"name": "acceptOwnership",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [],
+					"name": "initiateSelfDestruct",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "initiationTime",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "_owner",
+							"type": "address"
+						}
+					],
+					"name": "nominateNewOwner",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "nominatedOwner",
+					"outputs": [
+						{
+							"internalType": "address",
+							"name": "",
+							"type": "address"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "owner",
+					"outputs": [
+						{
+							"internalType": "address",
+							"name": "",
+							"type": "address"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [],
+					"name": "selfDestruct",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "selfDestructBeneficiary",
+					"outputs": [
+						{
+							"internalType": "address",
+							"name": "",
+							"type": "address"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "selfDestructInitiated",
+					"outputs": [
+						{
+							"internalType": "bool",
+							"name": "",
+							"type": "bool"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "address payable",
+							"name": "_beneficiary",
+							"type": "address"
+						}
+					],
+					"name": "setSelfDestructBeneficiary",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [],
+					"name": "terminateSelfDestruct",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				}
+			],
+			"devdoc": {
+				"methods": {
+					"initiateSelfDestruct()": {
+						"details": "Only the contract owner may call this."
+					},
+					"selfDestruct()": {
+						"details": "Only the contract owner may call this."
+					},
+					"setSelfDestructBeneficiary(address)": {
+						"details": "Only the contract owner may call this. The provided beneficiary must be non-null.",
+						"params": {
+							"_beneficiary": "The address to pay any eth contained in this contract to upon self-destruction."
+						}
+					},
+					"terminateSelfDestruct()": {
+						"details": "Only the contract owner may call this."
+					}
+				}
+			},
+			"userdoc": {
+				"methods": {
+					"initiateSelfDestruct()": {
+						"notice": "Begin the self-destruction counter of this contract. Once the delay has elapsed, the contract may be self-destructed."
+					},
+					"selfDestruct()": {
+						"notice": "If the self-destruction delay has elapsed, destroy this contract and remit any ether it owns to the beneficiary address."
+					},
+					"setSelfDestructBeneficiary(address)": {
+						"notice": "Set the beneficiary address of this contract."
+					},
+					"terminateSelfDestruct()": {
+						"notice": "Terminate and reset the self-destruction timer."
+					}
+				}
+			}
+		},
+		"settings": {
+			"compilationTarget": {
+				"SelfDestructible.sol": "SelfDestructible"
+			},
+			"evmVersion": "istanbul",
+			"libraries": {},
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"remappings": []
+		},
+		"sources": {
+			"SelfDestructible.sol": {
+				"keccak256": "0x43d955beb01504a2c29e23dad43549e068bc7e41f463e8a39580f3e2374144cf",
+				"urls": [
+					"bzz-raw://3f30d8e2f7b3d4dae2bf40a48a52d46cfc1913d797f28e2a8ec1e103b854e8f9",
+					"dweb:/ipfs/QmYBi1qFUWiKg3xpu41km7uzhTuKHTeaVJfjo3YqYLUANg"
+				]
+			}
+		},
+		"version": 1
+	}
+}

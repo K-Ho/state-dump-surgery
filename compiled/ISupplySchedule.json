@@ -1,0 +1,158 @@
+{
+	"abi": [
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "isMintable",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "mintableSupply",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "supplyMinted",
+					"type": "uint256"
+				}
+			],
+			"name": "recordMintEvent",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	],
+	"evm": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		}
+	},
+	"metadata": {
+		"compiler": {
+			"version": "0.5.16+ovm+commit.83c8e78f"
+		},
+		"language": "Solidity",
+		"output": {
+			"abi": [
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "isMintable",
+					"outputs": [
+						{
+							"internalType": "bool",
+							"name": "",
+							"type": "bool"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "mintableSupply",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "uint256",
+							"name": "supplyMinted",
+							"type": "uint256"
+						}
+					],
+					"name": "recordMintEvent",
+					"outputs": [
+						{
+							"internalType": "bool",
+							"name": "",
+							"type": "bool"
+						}
+					],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				}
+			],
+			"devdoc": {
+				"methods": {}
+			},
+			"userdoc": {
+				"methods": {}
+			}
+		},
+		"settings": {
+			"compilationTarget": {
+				"interfaces/ISupplySchedule.sol": "ISupplySchedule"
+			},
+			"evmVersion": "istanbul",
+			"libraries": {},
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"remappings": []
+		},
+		"sources": {
+			"interfaces/ISupplySchedule.sol": {
+				"keccak256": "0x3f8354efda22d727e83b615cf26ac64460aa78e418551051db55086c469f0c50",
+				"urls": [
+					"bzz-raw://105e55c001a9e89f2b116796f1f5ab7cc0c47471da729ca88d0a489559175511",
+					"dweb:/ipfs/QmTGFQZAsSSj35Vp9og2wV2xuL68gfDyRSjyTpLS7G6WCy"
+				]
+			}
+		},
+		"version": 1
+	}
+}

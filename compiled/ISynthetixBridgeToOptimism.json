@@ -1,0 +1,126 @@
+{
+	"abi": [
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "completeWithdrawal",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "deposit",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	],
+	"evm": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		}
+	},
+	"metadata": {
+		"compiler": {
+			"version": "0.5.16+commit.9c3226ce"
+		},
+		"language": "Solidity",
+		"output": {
+			"abi": [
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						}
+					],
+					"name": "completeWithdrawal",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						}
+					],
+					"name": "deposit",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				}
+			],
+			"devdoc": {
+				"methods": {}
+			},
+			"userdoc": {
+				"methods": {}
+			}
+		},
+		"settings": {
+			"compilationTarget": {
+				"interfaces/ISynthetixBridgeToOptimism.sol": "ISynthetixBridgeToOptimism"
+			},
+			"evmVersion": "istanbul",
+			"libraries": {},
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"remappings": []
+		},
+		"sources": {
+			"interfaces/ISynthetixBridgeToOptimism.sol": {
+				"keccak256": "0x1cc8951b0a5305138518df3679b17c8ba07757dc81f738e48fc3b35e2f58693c",
+				"urls": [
+					"bzz-raw://0c778ddf425b49a4cf27510d20de053bb9ae26540483526036fb3f8f98947ab3",
+					"dweb:/ipfs/QmQgkaykqTq7PQb631CYFUwEQkbFP1JnH478ysKyjQnnAG"
+				]
+			}
+		},
+		"version": 1
+	}
+}

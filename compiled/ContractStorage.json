@@ -1,0 +1,252 @@
+{
+	"abi": [
+		{
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "_resolver",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "constructor"
+		},
+		{
+			"anonymous": false,
+			"inputs": [
+				{
+					"indexed": false,
+					"internalType": "bytes32",
+					"name": "fromContractName",
+					"type": "bytes32"
+				},
+				{
+					"indexed": false,
+					"internalType": "bytes32",
+					"name": "toContractName",
+					"type": "bytes32"
+				},
+				{
+					"indexed": false,
+					"internalType": "bool",
+					"name": "removeAccessFromPreviousContract",
+					"type": "bool"
+				}
+			],
+			"name": "KeyMigrated",
+			"type": "event"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"name": "hashes",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "",
+					"type": "bytes32"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "fromContractName",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "toContractName",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "bool",
+					"name": "removeAccessFromPreviousContract",
+					"type": "bool"
+				}
+			],
+			"name": "migrateContractKey",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "resolverProxy",
+			"outputs": [
+				{
+					"internalType": "contract IAddressResolver",
+					"name": "",
+					"type": "address"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		}
+	],
+	"evm": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		}
+	},
+	"metadata": {
+		"compiler": {
+			"version": "0.5.16+ovm+commit.83c8e78f"
+		},
+		"language": "Solidity",
+		"output": {
+			"abi": [
+				{
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "_resolver",
+							"type": "address"
+						}
+					],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "constructor"
+				},
+				{
+					"anonymous": false,
+					"inputs": [
+						{
+							"indexed": false,
+							"internalType": "bytes32",
+							"name": "fromContractName",
+							"type": "bytes32"
+						},
+						{
+							"indexed": false,
+							"internalType": "bytes32",
+							"name": "toContractName",
+							"type": "bytes32"
+						},
+						{
+							"indexed": false,
+							"internalType": "bool",
+							"name": "removeAccessFromPreviousContract",
+							"type": "bool"
+						}
+					],
+					"name": "KeyMigrated",
+					"type": "event"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"internalType": "bytes32",
+							"name": "",
+							"type": "bytes32"
+						}
+					],
+					"name": "hashes",
+					"outputs": [
+						{
+							"internalType": "bytes32",
+							"name": "",
+							"type": "bytes32"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "bytes32",
+							"name": "fromContractName",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "toContractName",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "bool",
+							"name": "removeAccessFromPreviousContract",
+							"type": "bool"
+						}
+					],
+					"name": "migrateContractKey",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "resolverProxy",
+					"outputs": [
+						{
+							"internalType": "contract IAddressResolver",
+							"name": "",
+							"type": "address"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				}
+			],
+			"devdoc": {
+				"methods": {}
+			},
+			"userdoc": {
+				"methods": {}
+			}
+		},
+		"settings": {
+			"compilationTarget": {
+				"ContractStorage.sol": "ContractStorage"
+			},
+			"evmVersion": "istanbul",
+			"libraries": {},
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"remappings": []
+		},
+		"sources": {
+			"ContractStorage.sol": {
+				"keccak256": "0x0acf25958bcb51252d8621a825c7cf0768b455f0112ab3cc888dacefe9fc06e3",
+				"urls": [
+					"bzz-raw://5a9ac483302398240aa04b4326665cf10124491d960a1358890181419a7072a2",
+					"dweb:/ipfs/QmUDRM4FzN9puNZgPtGtLZmL7Jjxp4aCWB6tsz5AkXVR2o"
+				]
+			}
+		},
+		"version": 1
+	}
+}

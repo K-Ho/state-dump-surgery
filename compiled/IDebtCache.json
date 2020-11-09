@@ -1,0 +1,460 @@
+{
+	"abi": [
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "cacheInfo",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "debt",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "isInvalid",
+					"type": "bool"
+				},
+				{
+					"internalType": "bool",
+					"name": "isStale",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "cacheInvalid",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "cacheStale",
+			"outputs": [
+				{
+					"internalType": "bool",
+					"name": "",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "cacheTimestamp",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "cachedDebt",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"internalType": "bytes32",
+					"name": "currencyKey",
+					"type": "bytes32"
+				}
+			],
+			"name": "cachedSynthDebt",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"internalType": "bytes32[]",
+					"name": "currencyKeys",
+					"type": "bytes32[]"
+				}
+			],
+			"name": "cachedSynthDebts",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "debtValues",
+					"type": "uint256[]"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [],
+			"name": "currentDebt",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "debt",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bool",
+					"name": "anyRateIsInvalid",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"internalType": "bytes32[]",
+					"name": "currencyKeys",
+					"type": "bytes32[]"
+				}
+			],
+			"name": "currentSynthDebts",
+			"outputs": [
+				{
+					"internalType": "uint256[]",
+					"name": "debtValues",
+					"type": "uint256[]"
+				},
+				{
+					"internalType": "bool",
+					"name": "anyRateIsInvalid",
+					"type": "bool"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [],
+			"name": "takeDebtSnapshot",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "bytes32[]",
+					"name": "currencyKeys",
+					"type": "bytes32[]"
+				}
+			],
+			"name": "updateCachedSynthDebts",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	],
+	"evm": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		}
+	},
+	"metadata": {
+		"compiler": {
+			"version": "0.5.16+commit.9c3226ce"
+		},
+		"language": "Solidity",
+		"output": {
+			"abi": [
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "cacheInfo",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "debt",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "timestamp",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "isInvalid",
+							"type": "bool"
+						},
+						{
+							"internalType": "bool",
+							"name": "isStale",
+							"type": "bool"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "cacheInvalid",
+					"outputs": [
+						{
+							"internalType": "bool",
+							"name": "",
+							"type": "bool"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "cacheStale",
+					"outputs": [
+						{
+							"internalType": "bool",
+							"name": "",
+							"type": "bool"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "cacheTimestamp",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "cachedDebt",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"internalType": "bytes32",
+							"name": "currencyKey",
+							"type": "bytes32"
+						}
+					],
+					"name": "cachedSynthDebt",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"internalType": "bytes32[]",
+							"name": "currencyKeys",
+							"type": "bytes32[]"
+						}
+					],
+					"name": "cachedSynthDebts",
+					"outputs": [
+						{
+							"internalType": "uint256[]",
+							"name": "debtValues",
+							"type": "uint256[]"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [],
+					"name": "currentDebt",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "debt",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bool",
+							"name": "anyRateIsInvalid",
+							"type": "bool"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"internalType": "bytes32[]",
+							"name": "currencyKeys",
+							"type": "bytes32[]"
+						}
+					],
+					"name": "currentSynthDebts",
+					"outputs": [
+						{
+							"internalType": "uint256[]",
+							"name": "debtValues",
+							"type": "uint256[]"
+						},
+						{
+							"internalType": "bool",
+							"name": "anyRateIsInvalid",
+							"type": "bool"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [],
+					"name": "takeDebtSnapshot",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "bytes32[]",
+							"name": "currencyKeys",
+							"type": "bytes32[]"
+						}
+					],
+					"name": "updateCachedSynthDebts",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				}
+			],
+			"devdoc": {
+				"methods": {}
+			},
+			"userdoc": {
+				"methods": {}
+			}
+		},
+		"settings": {
+			"compilationTarget": {
+				"interfaces/IDebtCache.sol": "IDebtCache"
+			},
+			"evmVersion": "istanbul",
+			"libraries": {},
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"remappings": []
+		},
+		"sources": {
+			"interfaces/IDebtCache.sol": {
+				"keccak256": "0xa845d07e24705de6937dfac747f5b64bec50788b85b414b6fdbe12e6f3a06eb1",
+				"urls": [
+					"bzz-raw://cb795e4d34462f232a1cf07f9db021ab3f7b436c9621fc9f80b0c83063eaa015",
+					"dweb:/ipfs/QmQU2GBuPsinNWXUqNpE8vDS5sRdYy2fasi5YfkneJp8BL"
+				]
+			}
+		},
+		"version": 1
+	}
+}
