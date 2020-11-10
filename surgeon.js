@@ -1,5 +1,5 @@
 const fs = require('fs');
-const testnetDumpName = 'testnet-40400.json'
+const testnetDumpName = 'testnet-405412.json'
 const snxDeploymentName = 'deployment.json'
 const newStateDumpName = 'state-dump.latest.json'
 
@@ -33,18 +33,21 @@ for(let contractName in synthethixDeployment.targets) {
 }
 for (const [address, account] of Object.entries(testnetDump.result.accounts)) {
   // console.log(value)
-  if(account.codeHash === 'c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470') {
+  if(account.codeHash === 'c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470' &&
+  parseInt(account.address, 16) > 100000000000000
+
+  ) {
     const {deployedBytecode, abi} = JSON.parse(fs.readFileSync('OVM_ProxyEOA.json'))
     const eoaPrecompileAddress = '0x4200000000000000000000000000000000000003'
     const eoaName = 'EOA_' + address
     newStateDump.accounts[eoaName] = {
       address: address,
       nonce: account.nonce,
-      code: deployedBytecode,
-      storage: {
-        "0x0000000000000000000000000000000000000000000000000000000000000000": eoaPrecompileAddress,
-      },
-      abi
+      // code: deployedBytecode,
+      // storage: {
+      //   "0x0000000000000000000000000000000000000000000000000000000000000000": eoaPrecompileAddress,
+      // },
+      // abi
     }
   }
 
