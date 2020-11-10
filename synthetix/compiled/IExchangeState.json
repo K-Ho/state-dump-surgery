@@ -1,0 +1,442 @@
+{
+	"abi": [
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "src",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "dest",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountReceived",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "exchangeFeeRate",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "roundIdForSrc",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "roundIdForDest",
+					"type": "uint256"
+				}
+			],
+			"name": "appendExchangeEntry",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "currencyKey",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "index",
+					"type": "uint256"
+				}
+			],
+			"name": "getEntryAt",
+			"outputs": [
+				{
+					"internalType": "bytes32",
+					"name": "src",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "dest",
+					"type": "bytes32"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amountReceived",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "exchangeFeeRate",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "timestamp",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "roundIdForSrc",
+					"type": "uint256"
+				},
+				{
+					"internalType": "uint256",
+					"name": "roundIdForDest",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "currencyKey",
+					"type": "bytes32"
+				}
+			],
+			"name": "getLengthOfEntries",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": true,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "currencyKey",
+					"type": "bytes32"
+				}
+			],
+			"name": "getMaxTimestamp",
+			"outputs": [
+				{
+					"internalType": "uint256",
+					"name": "",
+					"type": "uint256"
+				}
+			],
+			"payable": false,
+			"stateMutability": "view",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"internalType": "bytes32",
+					"name": "currencyKey",
+					"type": "bytes32"
+				}
+			],
+			"name": "removeEntries",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	],
+	"evm": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		}
+	},
+	"metadata": {
+		"compiler": {
+			"version": "0.5.16+ovm+commit.83c8e78f"
+		},
+		"language": "Solidity",
+		"output": {
+			"abi": [
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "src",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "dest",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amountReceived",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "exchangeFeeRate",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "timestamp",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "roundIdForSrc",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "roundIdForDest",
+							"type": "uint256"
+						}
+					],
+					"name": "appendExchangeEntry",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "currencyKey",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "index",
+							"type": "uint256"
+						}
+					],
+					"name": "getEntryAt",
+					"outputs": [
+						{
+							"internalType": "bytes32",
+							"name": "src",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "dest",
+							"type": "bytes32"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amountReceived",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "exchangeFeeRate",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "timestamp",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "roundIdForSrc",
+							"type": "uint256"
+						},
+						{
+							"internalType": "uint256",
+							"name": "roundIdForDest",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "currencyKey",
+							"type": "bytes32"
+						}
+					],
+					"name": "getLengthOfEntries",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": true,
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "currencyKey",
+							"type": "bytes32"
+						}
+					],
+					"name": "getMaxTimestamp",
+					"outputs": [
+						{
+							"internalType": "uint256",
+							"name": "",
+							"type": "uint256"
+						}
+					],
+					"payable": false,
+					"stateMutability": "view",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
+						},
+						{
+							"internalType": "bytes32",
+							"name": "currencyKey",
+							"type": "bytes32"
+						}
+					],
+					"name": "removeEntries",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				}
+			],
+			"devdoc": {
+				"methods": {}
+			},
+			"userdoc": {
+				"methods": {}
+			}
+		},
+		"settings": {
+			"compilationTarget": {
+				"interfaces/IExchangeState.sol": "IExchangeState"
+			},
+			"evmVersion": "istanbul",
+			"libraries": {},
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"remappings": []
+		},
+		"sources": {
+			"interfaces/IExchangeState.sol": {
+				"keccak256": "0xa1e6921822672c1b410545e4da67d8d590542d1d4b478a37bb0a8cd4f8f63a34",
+				"urls": [
+					"bzz-raw://b3085896a3995322806f6c5fbca01a7c7c90f5d935d543a06760609d7147a13a",
+					"dweb:/ipfs/QmRdVqwT9xzpErQ8F7YFM994WnQbxj4D9peUDeaNxU5m7H"
+				]
+			}
+		},
+		"version": 1
+	}
+}

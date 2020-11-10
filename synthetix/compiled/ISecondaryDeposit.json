@@ -1,0 +1,196 @@
+{
+	"abi": [
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "completeWithdrawal",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "deposit",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "initiateWithdrawal",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		},
+		{
+			"constant": false,
+			"inputs": [
+				{
+					"internalType": "address",
+					"name": "account",
+					"type": "address"
+				},
+				{
+					"internalType": "uint256",
+					"name": "amount",
+					"type": "uint256"
+				}
+			],
+			"name": "mintSecondaryFromDeposit",
+			"outputs": [],
+			"payable": false,
+			"stateMutability": "nonpayable",
+			"type": "function"
+		}
+	],
+	"evm": {
+		"bytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		},
+		"deployedBytecode": {
+			"linkReferences": {},
+			"object": "",
+			"opcodes": "",
+			"sourceMap": ""
+		}
+	},
+	"metadata": {
+		"compiler": {
+			"version": "0.5.16+ovm+commit.83c8e78f"
+		},
+		"language": "Solidity",
+		"output": {
+			"abi": [
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						}
+					],
+					"name": "completeWithdrawal",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						}
+					],
+					"name": "deposit",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						}
+					],
+					"name": "initiateWithdrawal",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				},
+				{
+					"constant": false,
+					"inputs": [
+						{
+							"internalType": "address",
+							"name": "account",
+							"type": "address"
+						},
+						{
+							"internalType": "uint256",
+							"name": "amount",
+							"type": "uint256"
+						}
+					],
+					"name": "mintSecondaryFromDeposit",
+					"outputs": [],
+					"payable": false,
+					"stateMutability": "nonpayable",
+					"type": "function"
+				}
+			],
+			"devdoc": {
+				"methods": {}
+			},
+			"userdoc": {
+				"methods": {}
+			}
+		},
+		"settings": {
+			"compilationTarget": {
+				"interfaces/ISecondaryDeposit.sol": "ISecondaryDeposit"
+			},
+			"evmVersion": "istanbul",
+			"libraries": {},
+			"optimizer": {
+				"enabled": true,
+				"runs": 200
+			},
+			"remappings": []
+		},
+		"sources": {
+			"interfaces/ISecondaryDeposit.sol": {
+				"keccak256": "0x232336fdb0e3573eee9cfd0b3d230773b93ff3a73669b7249eb2ed01953514c4",
+				"urls": [
+					"bzz-raw://cf8e1769857039fa9a09b2e9c1076663d3274d0441fa40a714bce551ae226407",
+					"dweb:/ipfs/QmXHrUsr5Y8oQQ7hBRg5UQGVcEGUSvnABRRwdYRrgymJUS"
+				]
+			}
+		},
+		"version": 1
+	}
+}
