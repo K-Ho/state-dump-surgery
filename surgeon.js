@@ -5,6 +5,7 @@ const snxDeploymentName = 'synthetix/goerli-ovm/deployment.json'
 const localSnxDeploymentName = 'synthetix/test-ovm/deployment.json'
 const newStateDumpName = 'contractsv2/state-dump.latest.json'
 const compiledProxyEOAName = 'contractsv2/OVM_ProxyEOA.json'
+const compiledL2ETH = 'contractsv2/ERC20.json'
 
 let testnetDump = JSON.parse(fs.readFileSync(testnetDumpName))
 let localDump = JSON.parse(fs.readFileSync(localDumpName))
@@ -29,10 +30,16 @@ for(let contractName in synthethixDeployment.targets) {
 
   //Get goerli testnet snx addresses
   const snxContract = synthethixDeployment.targets[contractName]
-  const contractAddress = snxContract.address
+  let contractAddress = snxContract.address
+  const sourceName = localSynthethixDeployment.targets[contractName].source
 
-  const abi = localSynthethixDeployment.targets[contractName].abi
+  const abi = localSynthethixDeployment.sources[sourceName].abi
   const account = testnetDump.result.accounts[contractAddress.toLowerCase()]
+
+  //The local Library addresses are in bytecode, so we need to keep libraries at their old (local) addresses
+  if (['SafeDecimalMath', 'Math', 'AddressListLib', 'SafeMath'].includes(contractName)) {
+    contractAddress = localAddress
+  }
 
   const updatedAccount = {
     address: contractAddress,
@@ -68,7 +75,17 @@ for (const [address, account] of Object.entries(testnetDump.result.accounts)) {
       abi
     }
   }
+}
 
+const L2ETH = JSON.parse(
+  fs.readFileSync(compiledL2ETH)
+)
+
+newStateDump.accounts['L2_ETH'] = {
+  address: '0x4200000000000000000000000000000000000006',
+  nonce: 0,
+  code: '0x' + L2ETH.evm.deployedBytecode.object,
+  abi: L2ETH.abi
 }
 
 let updatedStateDump = JSON.stringify(newStateDump, null, 4);
