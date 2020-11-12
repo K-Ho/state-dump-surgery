@@ -6,6 +6,8 @@ const localSnxDeploymentName = 'synthetix/test-ovm/deployment.json'
 const newStateDumpName = 'contractsv2/state-dump.latest.json'
 const compiledProxyEOAName = 'contractsv2/OVM_ProxyEOA.json'
 const compiledL2ETH = 'contractsv2/ERC20.json'
+const compiledL2Messenger = 'contractsv2/OVM_L2CrossDomainMessenger.json'
+const compiledAddressManager = 'contractsv2/Lib_AddressManager.json'
 
 let testnetDump = JSON.parse(fs.readFileSync(testnetDumpName))
 let localDump = JSON.parse(fs.readFileSync(localDumpName))
@@ -87,6 +89,19 @@ newStateDump.accounts['L2_ETH'] = {
   code: '0x' + L2ETH.evm.deployedBytecode.object,
   abi: L2ETH.abi
 }
+newStateDump.accounts['Lib_AddressManager'].code =
+  '0x' + JSON.parse(
+    fs.readFileSync(
+      compiledAddressManager
+    )
+  ).evm.deployedBytecode.object
+
+newStateDump.accounts['OVM_L2CrossDomainMessenger'].code =
+  '0x' + JSON.parse(
+    fs.readFileSync(
+      compiledL2Messenger
+    )
+  ).evm.deployedBytecode.object
 
 let updatedStateDump = JSON.stringify(newStateDump, null, 4);
 const now = new Date();
