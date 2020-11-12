@@ -8,6 +8,7 @@ const compiledProxyEOAName = 'contractsv2/OVM_ProxyEOA.json'
 const compiledL2ETH = 'contractsv2/ERC20.json'
 const compiledL2Messenger = 'contractsv2/OVM_L2CrossDomainMessenger.json'
 const compiledAddressManager = 'contractsv2/Lib_AddressManager.json'
+const compiledL2ToL1MessagePasser = 'contractsv2/OVM_L2ToL1MessagePasser.json'
 
 let testnetDump = JSON.parse(fs.readFileSync(testnetDumpName))
 let localDump = JSON.parse(fs.readFileSync(localDumpName))
@@ -102,6 +103,13 @@ newStateDump.accounts['OVM_L2CrossDomainMessenger'].code =
       compiledL2Messenger
     )
   ).evm.deployedBytecode.object
+
+newStateDump.accounts['OVM_L2ToL1MessagePasser'].code =
+'0x' + JSON.parse(
+  fs.readFileSync(
+    compiledL2ToL1MessagePasser
+  )
+).evm.deployedBytecode.object
 
 let updatedStateDump = JSON.stringify(newStateDump, null, 4);
 const now = new Date();
