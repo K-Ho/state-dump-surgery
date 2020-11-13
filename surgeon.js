@@ -10,6 +10,22 @@ const compiledL2Messenger = 'contractsv2/OVM_L2CrossDomainMessenger.json'
 const compiledAddressManager = 'contractsv2/Lib_AddressManager.json'
 const compiledL2ToL1MessagePasser = 'contractsv2/OVM_L2ToL1MessagePasser.json'
 
+const L2MessengerAddress = '0x3e4CFaa8730092552d9425575E49bB542e329981'
+const AddressManagerAddress = '0x3C67B82D67B4f31A54C0A516dE8d3e93D010EDb3'
+const L2ToL1PasserAddress ='0x65F72DF8a668BC6272B059BB7F53ADc91066540C'
+const L2ETHAddress ='0x6d2f304CFF4e0B67dA4ab38C6A5C8184a2424D05'
+
+
+// LOCAL Integration repo
+// const L1MessengerAddress = '0xE08570AF306057221ed7F377a10009a111396748' // Set depending on local or UAT or Testnet
+// const L2OwnerAddress = '0x023fFdC1530468eb8c8EEbC3e38380b5bc19Cc5d' // Set depending on local or UAT or Testnet
+
+// UAT
+const L1MessengerAddress = '0x8fB842927699003038ba4dEcd13758284B2F2873' // Set depending on local or UAT or Testnet
+const L2OwnerAddress = '0x4107438C1b1579f258AF9d1AC06194C4a0F55040' // Set depending on local or UAT or Testnet
+
+// TESTNET
+
 let testnetDump = JSON.parse(fs.readFileSync(testnetDumpName))
 let localDump = JSON.parse(fs.readFileSync(localDumpName))
 let synthethixDeployment = JSON.parse(fs.readFileSync(snxDeploymentName))
@@ -80,6 +96,14 @@ for (const [address, account] of Object.entries(testnetDump.result.accounts)) {
   }
 }
 
+const getCode = (localAddress) => {
+  const messengerDump = JSON.parse(fs.readFileSync('geth-dumps/local-messenger-dump.json'))
+  const accounts = messengerDump.result.accounts
+  console.log('code for', localAddress)
+  console.log(accounts[localAddress.toLowerCase()].code)
+  return '0x' + messengerDump.result.accounts[localAddress.toLowerCase()].code
+}
+
 const L2ETH = JSON.parse(
   fs.readFileSync(compiledL2ETH)
 )
@@ -87,30 +111,17 @@ const L2ETH = JSON.parse(
 newStateDump.accounts['L2_ETH'] = {
   address: '0x4200000000000000000000000000000000000006',
   nonce: 0,
-  code: '0x' + L2ETH.evm.deployedBytecode.object,
+  code: getCode(L2ETHAddress), //getCode(compiledL2ETH),
   abi: L2ETH.abi
 }
-newStateDump.accounts['Lib_AddressManager'].code =
-  '0x' + JSON.parse(
-    fs.readFileSync(
-      compiledAddressManager
-    )
-  ).evm.deployedBytecode.object
+newStateDump.accounts['Lib_AddressManager'].code = getCode(AddressManagerAddress) //getCode(compiledAddressManager)
 
-newStateDump.accounts['OVM_L2CrossDomainMessenger'].code =
-  '0x' + JSON.parse(
-    fs.readFileSync(
-      compiledL2Messenger
-    )
-  ).evm.deployedBytecode.object
+newStateDump.accounts['Lib_AddressManager'].storage['0x515216935740e67dfdda5cf8e248ea32b3277787818ab59153061ac875c9385e'] = L1MessengerAddress
+newStateDump.accounts['Lib_AddressManager'].storage['0x0000000000000000000000000000000000000000000000000000000000000000'] = L2OwnerAddress
 
-newStateDump.accounts['OVM_L2ToL1MessagePasser'].code =
-'0x' + JSON.parse(
-  fs.readFileSync(
-    compiledL2ToL1MessagePasser
-  )
-).evm.deployedBytecode.object
+newStateDump.accounts['OVM_L2CrossDomainMessenger'].code = getCode(L2MessengerAddress) //getCode(compiledL2Messenger)
+
+newStateDump.accounts['OVM_L2ToL1MessagePasser'].code = getCode(L2ToL1PasserAddress) //getCode(compiledL2ToL1MessagePasser)
 
 let updatedStateDump = JSON.stringify(newStateDump, null, 4);
-const now = new Date();
 fs.writeFileSync(`build/surgical-state-dump.json`, updatedStateDump);
