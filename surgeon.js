@@ -17,14 +17,16 @@ const L2ETHAddress ='0x6d2f304CFF4e0B67dA4ab38C6A5C8184a2424D05'
 
 
 // LOCAL Integration repo
-// const L1MessengerAddress = '0xE08570AF306057221ed7F377a10009a111396748' // Set depending on local or UAT or Testnet
-// const L2OwnerAddress = '0x023fFdC1530468eb8c8EEbC3e38380b5bc19Cc5d' // Set depending on local or UAT or Testnet
+const L1MessengerAddress = '0xE08570AF306057221ed7F377a10009a111396748' // Set depending on local or UAT or Testnet
+const L2OwnerAddress = '0x023fFdC1530468eb8c8EEbC3e38380b5bc19Cc5d' // Set depending on local or UAT or Testnet
 
 // UAT
-const L1MessengerAddress = '0x8fB842927699003038ba4dEcd13758284B2F2873' // Set depending on local or UAT or Testnet
-const L2OwnerAddress = '0x4107438C1b1579f258AF9d1AC06194C4a0F55040' // Set depending on local or UAT or Testnet
+// const L1MessengerAddress = '0x8fB842927699003038ba4dEcd13758284B2F2873' // Set depending on local or UAT or Testnet
+// const L2OwnerAddress = '0x4107438C1b1579f258AF9d1AC06194C4a0F55040' // Set depending on local or UAT or Testnet
 
 // TESTNET
+// const L1MessengerAddress = ''
+// const L2OwnerAddress = ''
 
 let testnetDump = JSON.parse(fs.readFileSync(testnetDumpName))
 let localDump = JSON.parse(fs.readFileSync(localDumpName))
@@ -96,12 +98,16 @@ for (const [address, account] of Object.entries(testnetDump.result.accounts)) {
   }
 }
 
-const getCode = (localAddress) => {
-  const messengerDump = JSON.parse(fs.readFileSync('geth-dumps/local-messenger-dump.json'))
-  const accounts = messengerDump.result.accounts
-  console.log('code for', localAddress)
-  console.log(accounts[localAddress.toLowerCase()].code)
-  return '0x' + messengerDump.result.accounts[localAddress.toLowerCase()].code
+const getFindAndReplacedCode = (path) => {
+  return '0x' + JSON.parse(
+    fs.readFileSync(
+      path
+    )
+  ).evm.deployedBytecode.object.split(
+    '336000905af158601d01573d60011458600c01573d6000803e3d621234565260ea61109c52'
+  ).join(
+    '336000905af158600e01573d6000803e3d6000fd5b3d6001141558600a015760016000f35b'
+  )
 }
 
 const L2ETH = JSON.parse(
@@ -111,17 +117,17 @@ const L2ETH = JSON.parse(
 newStateDump.accounts['L2_ETH'] = {
   address: '0x4200000000000000000000000000000000000006',
   nonce: 0,
-  code: getCode(L2ETHAddress), //getCode(compiledL2ETH),
+  code: getFindAndReplacedCode(compiledL2ETH),
   abi: L2ETH.abi
 }
-newStateDump.accounts['Lib_AddressManager'].code = getCode(AddressManagerAddress) //getCode(compiledAddressManager)
+newStateDump.accounts['Lib_AddressManager'].code = getFindAndReplacedCode(compiledAddressManager)
 
 newStateDump.accounts['Lib_AddressManager'].storage['0x515216935740e67dfdda5cf8e248ea32b3277787818ab59153061ac875c9385e'] = L1MessengerAddress
 newStateDump.accounts['Lib_AddressManager'].storage['0x0000000000000000000000000000000000000000000000000000000000000000'] = L2OwnerAddress
 
-newStateDump.accounts['OVM_L2CrossDomainMessenger'].code = getCode(L2MessengerAddress) //getCode(compiledL2Messenger)
+newStateDump.accounts['OVM_L2CrossDomainMessenger'].code = getFindAndReplacedCode(compiledL2Messenger)
 
-newStateDump.accounts['OVM_L2ToL1MessagePasser'].code = getCode(L2ToL1PasserAddress) //getCode(compiledL2ToL1MessagePasser)
+newStateDump.accounts['OVM_L2ToL1MessagePasser'].code = getFindAndReplacedCode(compiledL2ToL1MessagePasser)
 
 let updatedStateDump = JSON.stringify(newStateDump, null, 4);
 fs.writeFileSync(`build/surgical-state-dump.json`, updatedStateDump);
