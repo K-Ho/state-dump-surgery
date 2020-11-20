@@ -1,5 +1,5 @@
 const fs = require('fs');
-const testnetDumpName = 'geth-dumps/testnet-45412.json'
+const testnetDumpName = 'geth-dumps/testnet-49072.json'
 const localDumpName = 'geth-dumps/local-deploy-dump.json'
 const snxDeploymentName = 'synthetix/goerli-ovm/deployment.json'
 const localSnxDeploymentName = 'synthetix/test-ovm/deployment.json'
@@ -10,23 +10,18 @@ const compiledL2Messenger = 'contractsv2/OVM_L2CrossDomainMessenger.json'
 const compiledAddressManager = 'contractsv2/Lib_AddressManager.json'
 const compiledL2ToL1MessagePasser = 'contractsv2/OVM_L2ToL1MessagePasser.json'
 
-const L2MessengerAddress = '0x3e4CFaa8730092552d9425575E49bB542e329981'
-const AddressManagerAddress = '0x3C67B82D67B4f31A54C0A516dE8d3e93D010EDb3'
-const L2ToL1PasserAddress ='0x65F72DF8a668BC6272B059BB7F53ADc91066540C'
-const L2ETHAddress ='0x6d2f304CFF4e0B67dA4ab38C6A5C8184a2424D05'
-
 
 // LOCAL Integration repo
-const L1MessengerAddress = '0xE08570AF306057221ed7F377a10009a111396748' // Set depending on local or UAT or Testnet
-const L2OwnerAddress = '0x023fFdC1530468eb8c8EEbC3e38380b5bc19Cc5d' // Set depending on local or UAT or Testnet
+// const L1MessengerAddress = '0xE08570AF306057221ed7F377a10009a111396748' // Set depending on local or UAT or Testnet
+// const L2OwnerAddress = '0x023fFdC1530468eb8c8EEbC3e38380b5bc19Cc5d' // Set depending on local or UAT or Testnet
 
 // UAT
-// const L1MessengerAddress = '0x8fB842927699003038ba4dEcd13758284B2F2873' // Set depending on local or UAT or Testnet
+// const L1MessengerAddress = '0x0c435C98cF0d0bf83bF54d6b8052D1278037C38e' // Set depending on local or UAT or Testnet
 // const L2OwnerAddress = '0x4107438C1b1579f258AF9d1AC06194C4a0F55040' // Set depending on local or UAT or Testnet
 
 // TESTNET
-// const L1MessengerAddress = ''
-// const L2OwnerAddress = ''
+const L1MessengerAddress = '0xed95BaA90FBb6d6cF4993A0D0a4C738c94e28eA1'
+const L2OwnerAddress = '0x4107438C1b1579f258AF9d1AC06194C4a0F55040'
 
 let testnetDump = JSON.parse(fs.readFileSync(testnetDumpName))
 let localDump = JSON.parse(fs.readFileSync(localDumpName))
@@ -44,7 +39,7 @@ const add0x = (str) => {
 
 let inputStateDump = {accounts: {}}
 // Add Synthetix contract accounts
-for(let contractName in synthethixDeployment.targets) {
+for (let contractName in synthethixDeployment.targets) {
   //find the updated deployed bytecode
   const localAddress = localSynthethixDeployment.targets[contractName].address
   const localBytecode = '0x' + localDump.result.accounts[localAddress.toLowerCase()].code
@@ -68,8 +63,8 @@ for(let contractName in synthethixDeployment.targets) {
     code: localBytecode,
     abi
   }
-  if(account.storage) {
-    for(const key of Object.keys(account.storage)) {
+  if (account.storage) {
+    for (const key of Object.keys(account.storage)) {
       account.storage[key] = add0x(account.storage[key])
     }
     updatedAccount.storage = account.storage
@@ -77,7 +72,7 @@ for(let contractName in synthethixDeployment.targets) {
   newStateDump.accounts[contractName] = updatedAccount
 }
 for (const [address, account] of Object.entries(testnetDump.result.accounts)) {
-  if(
+  if (
     account.codeHash === 'c5d2460186f7233c927e7db2dcc703c0e500b653ca82273b7bfad8045d85a470' && //Empty code
     parseInt(address, 16) > 10000000000 //Skip precompiles and dead addresses
   ) {
