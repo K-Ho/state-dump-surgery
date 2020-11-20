@@ -1,6 +1,6 @@
 const fs = require('fs');
 // const testnetDumpName = 'geth-dumps/testnet-49072.json'
-const uatDumpName = 'geth-dumps/uat-598.json'
+const uatDumpName = 'geth-dumps/uat2-598.json'
 
 
 let testnetDump = JSON.parse(fs.readFileSync(uatDumpName))
