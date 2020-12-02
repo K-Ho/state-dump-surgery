@@ -1,11 +1,12 @@
 const fs = require('fs');
-// const testnetDumpName = 'geth-dumps/testnet-49072.json'
-const uatDumpName = 'geth-dumps/uat2-598.json'
+// const liveDumpName = 'geth-dumps/testnet-49072.json'
+const uatDumpName = 'geth-dumps/uat2-dump-height-272-11-29-20.json'
+const surgicalDumpName = 'surgical-dumps/UAT2-surgical-state-dump.json'
 
-
-let testnetDump = JSON.parse(fs.readFileSync(uatDumpName))
+let liveDump = JSON.parse(fs.readFileSync(uatDumpName))
 // let uatDump = JSON.parse(fs.readFileSync(uatDumpName))
-const newStateDump = {"accounts": {}}
+const newStateDump = JSON.parse(fs.readFileSync(surgicalDumpName))
+const seenAddresses = {}
 
 const add0x = (str) => {
   if (str === undefined) {
@@ -14,45 +15,21 @@ const add0x = (str) => {
   return str.startsWith('0x') ? str : '0x' + str
 }
 
-// // Add Synthetix contract accounts
-// for (let contractName in synthethixDeployment.targets) {
-//   //find the updated deployed bytecode
-//   const localAddress = localSynthethixDeployment.targets[contractName].address
-//   const localBytecode = '0x' + localDump.result.accounts[localAddress.toLowerCase()].code
+for (let name in newStateDump.accounts) {
+  seenAddresses[newStateDump.accounts[name].address] = name
+}
 
-//   //Get goerli testnet snx addresses
-//   const snxContract = synthethixDeployment.targets[contractName]
-//   let contractAddress = snxContract.address
-//   const sourceName = localSynthethixDeployment.targets[contractName].source
-
-//   const abi = localSynthethixDeployment.sources[sourceName].abi
-//   const account = testnetDump.result.accounts[contractAddress.toLowerCase()]
-
-//   //The local Library addresses are in bytecode, so we need to keep libraries at their old (local) addresses
-//   if (['SafeDecimalMath', 'Math', 'AddressListLib', 'SafeMath'].includes(contractName)) {
-//     contractAddress = localAddress
-//   }
-
-//   const updatedAccount = {
-//     address: contractAddress,
-//     nonce: account.nonce,
-//     code: localBytecode,
-//     abi
-//   }
-//   if (account.storage) {
-//     for (const key of Object.keys(account.storage)) {
-//       account.storage[key] = add0x(account.storage[key])
-//     }
-//     updatedAccount.storage = account.storage
-//   }
-//   newStateDump.accounts[contractName] = updatedAccount
-// }
-for (const [address, account] of Object.entries(testnetDump.result.accounts)) {
+for (const [address, account] of Object.entries(liveDump.result.accounts)) {
   const accountName = `unnamed_${address}`
   if (account.storage) {
     for (const key of Object.keys(account.storage)) {
       account.storage[key] = add0x(account.storage[key])
     }
+  }
+  if (address in seenAddresses) {
+    newStateDump.accounts[seenAddresses[address]].storage = account.storage
+    newStateDump.accounts[seenAddresses[address]].nonce = account.nonce
+    continue
   }
   if (account.code) {
     account.code = add0x(account.code)
